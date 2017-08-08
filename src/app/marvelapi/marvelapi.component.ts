@@ -1,0 +1,35 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { NgModel } from '@angular/forms';
+import { MarvelService} from './marvelapi.service';
+
+
+
+@Component({
+  selector: 'app-marvelapi',
+  templateUrl: './marvelapi.component.html',
+  styleUrls: ['./marvelapi.component.css']
+})
+export class MarvelapiComponent implements OnInit {
+
+
+
+      title = 'Myapp';
+      username = 'Salvador'
+      listaHeroes: any;
+
+
+      constructor(private servicio:MarvelService){
+      }
+
+
+  cargarDatosMarvel(){
+      this.listaHeroes = this.servicio.getHeroes();
+      console.log(this.listaHeroes)
+  }
+
+
+  ngOnInit() {
+  }
+
+}
