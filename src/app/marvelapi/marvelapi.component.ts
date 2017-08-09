@@ -15,7 +15,7 @@ export class MarvelapiComponent implements OnInit {
 
 
       title = 'Myapp';
-      username = 'Salvador'
+      username = 'Salvador';
       listaHeroes: any;
 
 
@@ -24,12 +24,13 @@ export class MarvelapiComponent implements OnInit {
 
 
   cargarDatosMarvel(){
-      this.listaHeroes = this.servicio.getHeroes();
-      console.log(this.listaHeroes)
+      this.servicio.getHeroes().subscribe(listaHeroes => this.listaHeroes = listaHeroes);
+
   }
 
 
   ngOnInit() {
+      this.cargarDatosMarvel();
   }
 
 }
